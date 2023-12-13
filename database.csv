@@ -13,7 +13,6 @@ anime_data = [
 # Writing or updating the CSV file
 with open(csv_file_path, mode='w', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
-
     # Write the entire dataset to the CSV file
     writer.writerows(anime_data)
 
