@@ -1,14 +1,12 @@
-# anime.py
 from media import Media
 
 class Anime(Media):
-
     def __init__(self, title, mood, time_commitment, year_released, genre, ratings, episode_count):
         super().__init__(title, mood, time_commitment, year_released, genre, ratings)
         self.episode_count = episode_count
-    
+
     def display_info(self):
-        super().display_info()  # Calls the display method of the super class
+        super().display_info()
         print(f"Episode Count: {self.episode_count}")
 
     def display_short_info(self):

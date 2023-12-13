@@ -10,7 +10,7 @@ class Media:
         ratings (float): The ratings given to the media item.
     """
 
-    def __init__(self, title, mood, time_commitment, year_released, genre, ratings):
+    def __init__(self, title, ood, time_commitment, year_released, genre, ratings):
 
        #Initialize common attributes.
 

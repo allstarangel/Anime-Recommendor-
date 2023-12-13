@@ -1,5 +1,3 @@
-#main.py
-
 from animedatabase import AnimeDatabase
 
 def get_user_input():
@@ -27,4 +25,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
