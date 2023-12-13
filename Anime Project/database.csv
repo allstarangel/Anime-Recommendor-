@@ -3,12 +3,13 @@ import csv
 csv_file_path = 'database.csv'
 
 anime_data = [
-    [title,mood,time commitment,year released,genre,ratings,episode count],
-    ['Attack on Titan', 'Action', 'Long Term', 2013, 'Post-apocalyptic', '9.1/10', 94], 
-    ['My Hero Academia', 'Superhero', 'Long Term', 2016, 'Action-Comedy', '8.5/10', 139],
-    ['One Punch Man', 'Funny', 'Short Term', 2015, 'Superhero', '8.7/10', 24],
-    ['Jujutsu Kaisen 0', 'Action', 'Short Term', 2023, 'Action/Supernatural', '8.6/10', 20]
+    ["title", "mood", "time_commitment", "year_released", "genre", "ratings", "episode_count", "seasons"],
+    ['Attack on Titan', 'Action', 'Long Term', 2013, 'Post-apocalyptic', '9.1/10', 94, 4],
+    ['My Hero Academia', 'Superhero', 'Long Term', 2016, 'Action-Comedy', '8.5/10', 139, 6],
+    ['One Punch Man', 'Funny', 'Short Term', 2015, 'Superhero', '8.7/10', 24, 2],
+    ['Jujutsu Kaisen 0', 'Action', 'Short Term', 2023, 'Action/Supernatural', '8.6/10', 20, 1]
 ]
+
 
 
     
