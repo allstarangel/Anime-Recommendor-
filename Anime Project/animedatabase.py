@@ -9,8 +9,8 @@ class AnimeDatabase:
         self.load_data_from_csv()
 
     def generate_recommendation(self, mood, commitment_level):
-        filtered_anime = [a for a in self.anime_entries if anime['mood'] == mood and anime['time_commitment'] == commitment_level]
-
+        filtered_anime = [anime for anime in self.anime_entries if anime.mood == mood and anime.time_commitment == commitment_level]
+        
         if filtered_anime:
             import random
             return random.choice(filtered_anime)
