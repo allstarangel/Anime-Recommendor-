@@ -1,7 +1,7 @@
 # animedatabase.py
 import csv
 from anime import Anime  # Import the Anime class
-from fuzzywuzzy import fuzz
+
 
 class AnimeDatabase:
     def __init__(self, csv_file_path='database.csv'):
@@ -10,10 +10,26 @@ class AnimeDatabase:
         self.load_data_from_csv()
 
     def generate_recommendation(self, mood, commitment_level):
-        threshold = 80  # Adjust the threshold based on your needs
-        filtered_anime = [anime for anime in self.anime_entries if anime and fuzz.partial_ratio(mood.lower(), anime.mood.lower()) > threshold and anime.time_commitment.lower() == commitment_level]
+        # Print debug information about the anime entries
+        print("Debug Information:")
+        for anime in self.anime_entries:
+            print(f"Title: {anime.title}, Mood: {anime.mood}, Time Commitment: {anime.time_commitment}")
+
+        # Filter anime based on user input
+        filtered_anime = [
+            anime for anime in self.anime_entries
+            if anime and anime.mood and anime.time_commitment
+            and mood.lower() in anime.mood.lower()
+            and anime.time_commitment.lower() == commitment_level
+        ]
+
+        # Print filtered anime for debugging
+        print("\nFiltered Anime:")
+        for anime in filtered_anime:
+            print(f"Title: {anime.title}, Mood: {anime.mood}, Time Commitment: {anime.time_commitment}")
 
         if filtered_anime:
+            import random
             return random.choice(filtered_anime)
         else:
             return None
