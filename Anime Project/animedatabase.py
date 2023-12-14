@@ -1,6 +1,7 @@
 # animedatabase.py
 import csv
 from anime import Anime  # Import the Anime class
+from fuzzywuzzy import fuzz
 
 class AnimeDatabase:
     def __init__(self, csv_file_path='database.csv'):
@@ -9,16 +10,14 @@ class AnimeDatabase:
         self.load_data_from_csv()
 
     def generate_recommendation(self, mood, commitment_level):
-        mood = mood.lower()  # Convert user input to lowercase
-        commitment_level = commitment_level.lower()  # Convert user input to lowercase
-
-        filtered_anime = [anime for anime in self.anime_entries if anime.mood.lower() == mood and anime.time_commitment.lower() == commitment_level]
+        threshold = 80  # Adjust the threshold based on your needs
+        filtered_anime = [anime for anime in self.anime_entries if anime and fuzz.partial_ratio(mood.lower(), anime.mood.lower()) > threshold and anime.time_commitment.lower() == commitment_level]
 
         if filtered_anime:
-            import random
             return random.choice(filtered_anime)
         else:
             return None
+
 
     def load_data_from_csv(self):
         data = read_csv()
@@ -37,6 +36,8 @@ class AnimeDatabase:
                 self.anime_entries.append(anime)
             except ValueError as e:
                 print(f"Error processing row: {row}. {e}")
+
+
 
 # Add the read_csv function
 def read_csv():
