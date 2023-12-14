@@ -47,7 +47,8 @@ class AnimeDatabase:
                     row['Genre'],
                     row['Ratings'],
                     int(row['Episode Count']) if row['Episode Count'] else None,
-                    int(row['Seasons']) if row['Seasons'] else None
+                    int(row['Seasons']) if row['Seasons'] else None,
+                    row['Image Path']
                 )
                 self.anime_entries.append(anime)
             except ValueError as e:
