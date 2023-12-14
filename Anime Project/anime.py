@@ -6,6 +6,7 @@ class Anime(Media):
         super().__init__(title, mood, time_commitment, year_released, genre, ratings)
         self.episode_count = episode_count
         self.seasons = seasons
+        self.image_path = image_path
 
     def display_info(self):
         super().display_info()
