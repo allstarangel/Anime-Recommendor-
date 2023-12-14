@@ -1,16 +1,20 @@
 from media import Media
 
 class Anime(Media):
-    def __init__(self, title, mood, time_commitment, year_released, genre, ratings, episode_count):
+
+    def __init__(self, title, mood, time_commitment, year_released, genre, ratings, episode_count, seasons):
         super().__init__(title, mood, time_commitment, year_released, genre, ratings)
         self.episode_count = episode_count
+        self.seasons = seasons
 
     def display_info(self):
         super().display_info()
         print(f"Episode Count: {self.episode_count}")
+        print(f"Seasons: {self.seasons}")
 
     def display_short_info(self):
-        return f"{super().display_short_info()} - Episode Count: {self.episode_count}"
+        return f"{super().display_short_info()} - Episode Count: {self.episode_count} - Seasons: {self.seasons}"
+
 
     def calculate_watch_time(self):
         """Calculate the total watch time 

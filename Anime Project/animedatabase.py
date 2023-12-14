@@ -10,7 +10,7 @@ class AnimeDatabase:
 
     def generate_recommendation(self, mood, commitment_level):
         filtered_anime = [anime for anime in self.anime_entries if anime.mood == mood and anime.time_commitment == commitment_level]
-        
+
         if filtered_anime:
             import random
             return random.choice(filtered_anime)
@@ -18,7 +18,22 @@ class AnimeDatabase:
             return None
 
     def load_data_from_csv(self):
-        self.anime_entries = read_csv()
+        data = read_csv()
+        for row in data[1:]:  # Start from the second row to skip the header
+            try:
+                anime = Anime(
+                    row['Title'],
+                    row['Mood'],
+                    row['Time Commitment'],
+                    int(row['Year Released']) if row['Year Released'] else None,
+                    row['Genre'],
+                    row['Ratings'],
+                    int(row['Episode Count']) if row['Episode Count'] else None,
+                    int(row['Seasons']) if row['Seasons'] else None
+                )
+                self.anime_entries.append(anime)
+            except ValueError as e:
+                print(f"Error processing row: {row}. {e}")
 
 # Add the read_csv function
 def read_csv():
