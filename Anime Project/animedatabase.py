@@ -9,7 +9,7 @@ class AnimeDatabase:
         self.csv_file_path = csv_file_path
         self.load_data_from_csv()
 
-    def generate_recommendation(self, mood, commitment_level):
+    def generate_recommendation(self, mood, commitment_level, display_output):
         # Print debug information about the anime entries
         print("Debug Information:")
         for anime in self.anime_entries:

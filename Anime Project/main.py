@@ -12,16 +12,30 @@ def main():
 
     # Get user preferences
     user_mood, user_commitment_level = get_user_input()
+    
+    # Ask the user for display preference
+    display_output = input("Would you want a long display or short (e.g., 'short' or 'long'): ").lower()
 
     # Generate anime recommendation based on user preferences
-    recommendation = anime_db.generate_recommendation(user_mood, user_commitment_level)
+    recommendation = anime_db.generate_recommendation(user_mood, user_commitment_level, display_output)
 
     # Display the recommendation
     if recommendation:
         print("\nRecommended Anime:")
-        print(recommendation.display_short_info())
+        if display_output == 'short':
+            print(recommendation.display_short_info())
+        else:
+            print(recommendation.display_info())
     else:
         print("\nNo matching anime found in the database.")
+    
+    # Ask user if they want to continue generating recommendations
+    user_input = input("Do you want another recommendation? (yes/no): ").lower()
+    if user_input != 'yes':
+        break
 
 if __name__ == "__main__":
     main()
+
+
+
