@@ -9,7 +9,10 @@ class AnimeDatabase:
         self.load_data_from_csv()
 
     def generate_recommendation(self, mood, commitment_level):
-        filtered_anime = [anime for anime in self.anime_entries if anime.mood == mood and anime.time_commitment == commitment_level]
+        mood = mood.lower()  # Convert user input to lowercase
+        commitment_level = commitment_level.lower()  # Convert user input to lowercase
+
+        filtered_anime = [anime for anime in self.anime_entries if anime.mood.lower() == mood and anime.time_commitment.lower() == commitment_level]
 
         if filtered_anime:
             import random
