@@ -2,37 +2,36 @@ from animedatabase import AnimeDatabase
 
 def get_user_input():
     """Get user input for mood and commitment level."""
-    mood = input("Enter your mood (e.g., happy, sad, adventurous): ")
+    mood = input("Enter your mood (e.g., action, sad, adventurous): ")
     commitment_level = input("Enter your commitment level (e.g., short term, long term): ")
-    return mood, commitment_level
+    display_output = input("Would you want a short or long display? (pick either: 'short' or 'long': )")
+    return mood, commitment_level, display_output
 
 def main():
-    # Create an instance of AnimeDatabase
-    anime_db = AnimeDatabase()
+    while True:
+        # Create an instance of AnimeDatabase
+        anime_db = AnimeDatabase() 
 
-    # Get user preferences
-    user_mood, user_commitment_level = get_user_input()
-    
-    # Ask the user for display preference
-    display_output = input("Would you want a long display or short (e.g., 'short' or 'long'): ").lower()
+        # Get user preferences
+        user_mood, user_commitment_level, display_output = get_user_input()
 
-    # Generate anime recommendation based on user preferences
-    recommendation = anime_db.generate_recommendation(user_mood, user_commitment_level, display_output)
+        # Generate anime recommendation based on user preferences
+        recommendation = anime_db.generate_recommendation(user_mood, user_commitment_level, display_output)
 
-    # Display the recommendation
-    if recommendation:
-        print("\nRecommended Anime:")
-        if display_output == 'short':
-            print(recommendation.display_short_info())
+        # Display the recommendation
+        if recommendation:
+            print("\nRecommended Anime:")
+            if display_output == 'short':
+                print(recommendation.display_short_info())
+            else:
+                print(recommendation.display_info())
         else:
-            print(recommendation.display_info())
-    else:
-        print("\nNo matching anime found in the database.")
-    
-    # Ask user if they want to continue generating recommendations
-    user_input = input("Do you want another recommendation? (yes/no): ").lower()
-    if user_input != 'yes':
-    break
+            print("\nNo matching anime found in the database.")
+
+        # Ask the user if they want to continue
+        user_input = input("Do you want another recommendation? (yes/no): ").lower()
+        if user_input != 'yes':
+            break  # This break statement should be aligned with the while loop
 
 if __name__ == "__main__":
     main()

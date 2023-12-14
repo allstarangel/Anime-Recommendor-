@@ -52,6 +52,7 @@ class AnimeDatabase:
                 self.anime_entries.append(anime)
             except ValueError as e:
                 print(f"Error processing row: {row}. {e}")
+       
 
 
 
