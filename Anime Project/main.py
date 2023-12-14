@@ -32,7 +32,7 @@ def main():
     # Ask user if they want to continue generating recommendations
     user_input = input("Do you want another recommendation? (yes/no): ").lower()
     if user_input != 'yes':
-        break
+    break
 
 if __name__ == "__main__":
     main()
