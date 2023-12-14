@@ -1,6 +1,6 @@
 # animedatabase.py
 import csv
-from anime import Anime
+from anime import Anime  # Import the Anime class
 
 class AnimeDatabase:
     def __init__(self, csv_file_path='database.csv'):
@@ -9,7 +9,7 @@ class AnimeDatabase:
         self.load_data_from_csv()
 
     def generate_recommendation(self, mood, commitment_level):
-        filtered_anime = [anime for anime in self.anime_entries if anime.mood == mood and anime.time_commitment == commitment_level]
+        filtered_anime = [a for a in self.anime_entries if anime['mood'] == mood and anime['time_commitment'] == commitment_level]
 
         if filtered_anime:
             import random
@@ -18,25 +18,19 @@ class AnimeDatabase:
             return None
 
     def load_data_from_csv(self):
-        file_path = 'database.csv'
-        try:
-            with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
-                reader = csv.DictReader(csvfile)
+        self.anime_entries = read_csv()
 
-                print(reader.fieldnames)
+# Add the read_csv function
+def read_csv():
+    file_path = 'database.csv'
+    data = []
+    try:
+        with open(file_path, mode='r', newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                data.append(row)
+    except FileNotFoundError:
+        print(f"CSV file '{file_path}' not found.")
+    return data
 
-                for row in reader:
-                    print(row)
-                    anime = Anime(
-                                row['title'],
-                                row['mood'],
-                                row['time commitment'],
-                                int(row['year released']),
-                                row['genre'],
-                                row['ratings'],
-                                int(row['episode count'])
-                                )
-                    self.anime_entries.append(anime)
-        except FileNotFoundError:
-            print(f"CSV file '{file_path}' not found.")
 
