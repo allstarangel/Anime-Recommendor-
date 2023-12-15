@@ -40,7 +40,7 @@ class AnimeDatabase:
 
     def load_data_from_csv(self):
         data = read_csv()
-        for row in data[1:]:  # Start from the second row to skip the header
+        for row in data[0:]:  # Start from the second row to skip the header
             try:
                 anime = Anime(
                     row['Title'],
