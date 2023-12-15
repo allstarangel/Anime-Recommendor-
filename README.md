@@ -10,5 +10,11 @@ i.e mood and time commitment.
 ## Prerequisites
 - Python 3 installed on machine
 
-## Usage
+## Installation
+1. Clone the repository:
+   - git clone https://github.com/allstarangel/project.git
+  
+2. Navigate to the project directory:
+   - cd Anime-Recommendation-App
+  
   
