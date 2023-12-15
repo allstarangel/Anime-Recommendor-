@@ -2,7 +2,7 @@
 import os
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk, ImageEnhance
+from PIL import Image, ImageTk
 from animedatabase import AnimeDatabase
 
 class AnimeGUI:
@@ -66,6 +66,27 @@ class AnimeGUI:
             self.image_label.image = img  # Keep a reference to prevent garbage collection
         except FileNotFoundError:
             print(f"Error loading image: {abs_image_path}")
+    def display_recommendation(self, recommendation):
+         if recommendation:
+            text = f"Recommended Anime: {recommendation.title}\n"
+            text += f"Genre: {recommendation.genre}\n"
+            text += f"Ratings: {recommendation.ratings}\n"
+            text += f"Mood: {recommendation.mood}\n"
+            text += f"Time Commitment: {recommendation.time_commitment}\n"
+            text += f"Year Released: {recommendation.year_released}\n"
+
+            if recommendation.episode_count is not None:
+                text += f"Episode Count: {recommendation.episode_count}\n"
+
+            if recommendation.seasons is not None:
+                text += f"Seasons: {recommendation.seasons}\n"
+
+            self.recommendation_label.config(text=text)
+            self.display_image(recommendation.image_path)
+         else:
+                self.recommendation_label.config(text="No matching anime found in the database.")
+                self.image_label.config(image=None)
+
 
 
 
