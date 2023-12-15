@@ -1,8 +1,9 @@
 # gui.py
-import tkinter as tkinter
-from tkinter import tkk
-from PIL import Image, ImageTK
+import tkinter as tk
+from PIL import Image, ImageTk
+from tkinter import ttk
 from animedatabase import AnimeDatabase
+
 
 class AnimeGUI:
     def __init__(self, root):
