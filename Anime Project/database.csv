@@ -1,6 +1,6 @@
 Title,Mood,Time Commitment,Year Released,Genre,Ratings,Episode Count,Seasons,Image Path
 Attack on Titan,action,short term,2013,Post-apocalyptic,9.1/10,94,4,attack_on_titan.jpg
-My Hero Academia,superhero,long term,2016,Action-Comedy,8.5/10,139,6,my_hero_academia.jpg
+My Hero Academia,action,long term,2016,Action-Comedy,8.5/10,139,6,my_hero_academia.jpg
 One Punch Man,funny,short term,2015,Superhero,8.7/10,24,2,one_punch_man.jpg
 Jujutsu Kaisen 0,action,short term,2023,Action/Supernatural,8.6/10,20,1,jujutsu_kaisen_0.jpg
 Demon Slayer,adventure,long term,2019,Action,8.7/10,26,2,demon_slayer.jpg
@@ -9,7 +9,7 @@ Dragon Ball Z,Adventure,Long Term,1989,Action,8.7/10,291,9,dragon_ball_z.jpg
 Sword Art Online,Fantasy,Long Term,2012,Adventure,7.6/10,96,4,sword_art_online.jpg
 Fullmetal Alchemist: Brotherhood,adventure,Long Term,2009,Action,9.1/10,63,3,fullmetal_alchemist_brotherhood.jpg
 Cowboy Bebop,Adventure,Short Term,1998,Sci-Fi,8.9/10,26,1,cowboy_bepop.jpg
-Death Note,horror, Short Term,2006,Mystery,9.0/10,37,1,death_note.jpg
+Death Note,action, Short Term,2006,Mystery,9.0/10,37,1,death_note.jpg
 Hunter x Hunter,Adventure,Long Term,2011,Action,8.9/10,148,6,hunter_x_hunter.jpg
 Steins;Gate,action,Short Term,2011,Thriller,8.8/10,24,1,steins_gate.jpg
 My Youth Romantic Comedy Is Wrong,Comedy,Short Term,2013,Romance,8.1/10,26,2,my_youth_comedy.jpg
