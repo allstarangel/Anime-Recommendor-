@@ -30,8 +30,11 @@ class AnimeDatabase:
 
         if filtered_anime:
             import random
-            return random.choice(filtered_anime)
+            chosen_anime = random.choice(filtered_anime)
+            print(f"Chosen Anime: {chosen_anime.title}")
+            return chosen_anime
         else:
+            print("No matching anime found in the database.")
             return None
 
 

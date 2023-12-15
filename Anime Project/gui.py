@@ -1,9 +1,9 @@
 # gui.py
+import os
 import tkinter as tk
-from PIL import Image, ImageTk
 from tkinter import ttk
+from PIL import Image, ImageTk
 from animedatabase import AnimeDatabase
-
 
 class AnimeGUI:
     def __init__(self, root):
@@ -16,7 +16,6 @@ class AnimeGUI:
         # Create GUI elements
         self.create_widgets()
 
-    
     def create_widgets(self):
         # Labels and Entry widgets for user input
         mood_label = ttk.Label(self.root, text="Enter your mood:")
@@ -46,7 +45,7 @@ class AnimeGUI:
         user_mood = self.mood_entry.get()
         user_commitment_level = self.commitment_entry.get()
 
-        recommendation = self.anime_db.generate_recommendation(user_mood, user_commitment_level)
+        recommendation = self.anime_db.generate_recommendation(user_mood, user_commitment_level, None)  # Replace None with the actual value for display_output
 
         if recommendation:
             self.recommendation_label.config(text=f"Recommended Anime: {recommendation.title}")
@@ -55,12 +54,17 @@ class AnimeGUI:
             self.recommendation_label.config(text="No matching anime found in the database.")
             self.image_label.config(image=None)
 
+
     def display_image(self, image_path):
-        img = Image.open(image_path)
+        print(f"Absolute Image Path: {abs_image_path}")
+        abs_image_path = os.path.abspath(image_path)
+
+        img = Image.open(abs_image_path)
         img = img.resize((200, 300), Image.ANTIALIAS)
         img = ImageTk.PhotoImage(img)
+        
         self.image_label.config(image=img)
-        self.image_label.image = img  # Keep a reference to prevent garbage collection
+        self.image_label.image = img
 
 
 def main():
@@ -71,3 +75,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
