@@ -2,7 +2,7 @@
 import os
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageEnhance
 from animedatabase import AnimeDatabase
 
 class AnimeGUI:
@@ -53,18 +53,20 @@ class AnimeGUI:
         else:
             self.recommendation_label.config(text="No matching anime found in the database.")
             self.image_label.config(image=None)
-
-
+    
     def display_image(self, image_path):
-        print(f"Absolute Image Path: {abs_image_path}")
         abs_image_path = os.path.abspath(image_path)
+        abs_image_path = os.path.join(os.path.dirname(__file__), abs_image_path)
 
-        img = Image.open(abs_image_path)
-        img = img.resize((200, 300), Image.ANTIALIAS)
-        img = ImageTk.PhotoImage(img)
-        
-        self.image_label.config(image=img)
-        self.image_label.image = img
+        try:
+            img = Image.open(abs_image_path)
+            img = img.resize((400, 600), Image.NEAREST)
+            img = ImageTk.PhotoImage(img)
+            self.image_label.config(image=img)
+            self.image_label.image = img  # Keep a reference to prevent garbage collection
+        except FileNotFoundError:
+            print(f"Error loading image: {abs_image_path}")
+
 
 
 def main():
