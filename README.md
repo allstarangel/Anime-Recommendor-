@@ -16,6 +16,8 @@ i.e mood and time commitment.
 2. Make sure to install Pillow==8.4.0
   
 3. Navigate to the project directory
+4. All important files are located in the second branch called main-bug-fixes.
+5. The main program is located in the anime project file inside this branch. In that file the 'main.py' and 'gui.py' is found there as well. 
 
 ## Usage 
 1. Open a terminal in the project directory
